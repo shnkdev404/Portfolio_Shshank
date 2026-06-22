@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Scroll reveal — toggled by the useScrollReveal hook */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Browser-style chrome used on hero terminal + project cards */
+  .browser-chrome {
+    border-radius: 10px 10px 0 0;
+    background: #1e1e2e;
+    padding: 10px 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .browser-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Nav link underline */
+  .nav-link {
+    @apply relative flex items-center text-gray-300 text-sm font-medium transition-colors duration-200;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #34d399;
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover,
+  .nav-link.active {
+    @apply text-accent;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Contact form input */
+  .form-input {
+    @apply w-full bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-700
+      rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white
+      focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent
+      transition-all placeholder-gray-400;
+  }
+
+  .section-label {
+    @apply font-mono text-xs tracking-[0.25em] uppercase text-accent mb-3;
+  }
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight;
+  }
+
+  /* Floating nav buttons */
+  .floating-btn {
+    transition: width 0.35s ease;
+  }
+  .floating-btn:hover {
+    width: 110px;
+  }
+  .fab-label {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.2s ease, transform 0.35s ease;
+    white-space: nowrap;
+  }
+  .floating-btn:hover .fab-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Project card hover lift */
+  .proj-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .proj-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Service card hover lift */
+  .service-card {
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+  .service-card:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Award card hover scale */
+  .award-card {
+    transition: transform 0.2s ease;
+  }
+  .award-card:hover {
+    transform: scale(1.02);
+  }
+}
+
+::selection {
+  background: #34d399;
+  color: black;
+}
