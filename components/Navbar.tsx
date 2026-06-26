@@ -9,9 +9,28 @@ export default function Navbar() {
   const active = useActiveSection(sectionIds);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center h-[52px] px-8">
-      <Link href="#home" className="font-mono text-sm font-bold tracking-[0.05em] text-white">
-        Shshank<sup className="text-white/40 text-[8px]">©</sup>
+    <nav className="sticky top-0 left-0 right-0 z-50 flex justify-between items-center h-[52px] px-8 backdrop-blur-md  border-b border-white/5">
+      {/* SK favicon logo */}
+      <Link href="#home" className="flex items-center shrink-0 m-8">
+        <div
+          style={{
+            width: 32,
+            height: 32,
+            background: "#0a0a0a",
+            border: "1.5px solid #34d399",
+            borderRadius: 8,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "monospace",
+            fontWeight: 700,
+            fontSize: 13,
+            color: "#34d399",
+            letterSpacing: "0.02em",
+          }}
+        >
+          Sk
+        </div>
       </Link>
 
       <ul className="hidden sm:flex items-center gap-6 list-none m-0 p-0">
@@ -34,7 +53,6 @@ export default function Navbar() {
         })}
       </ul>
 
-      {/* FIXED SECTION BELOW */}
       <a
         href="#contact"
         className="flex items-center gap-2 bg-white text-black text-[12px] font-bold px-5 py-2 rounded-full hover:bg-accent transition-colors"
@@ -42,7 +60,7 @@ export default function Navbar() {
         Let&apos;s Talk
         <span className="w-[22px] h-[22px] rounded-full bg-black flex items-center justify-center">
           <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2.5">
-            <polyline points="3,2 9,6 3,10"/>
+            <polyline points="3,2 9,6 3,10" />
           </svg>
         </span>
       </a>

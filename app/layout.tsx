@@ -19,16 +19,7 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.tagline}`,
-  description: profile.summary,
-  authors: [{ name: profile.name }],
-  openGraph: {
-    title: `${profile.name} — ${profile.tagline}`,
-    description: profile.summary,
-    type: "website",
-  },
-};
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
